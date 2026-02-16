@@ -238,7 +238,6 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, reactive } from 'vue';
 import { useEventListener } from '@vueuse/core';
 import { useElectricSimulation } from './composables/useElectricSimulation';
 import { getVoltageColor, AVAILABLE_VOLTAGES, GRID_CELL, getLevelDesc, getRiserType } from './utils/constants';
