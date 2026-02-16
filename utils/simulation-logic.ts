@@ -1,5 +1,3 @@
-import { GRID_CELL } from './constants';
-
 export interface Position {
   x: number;
   y: number;

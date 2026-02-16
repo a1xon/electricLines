@@ -1,17 +1,5 @@
-import { ref, reactive, shallowRef, watch, computed } from 'vue';
-import { 
-  AVAILABLE_VOLTAGES, 
-  GRID_CELL, 
-  LEVELS 
-} from '../utils/constants';
-import { 
-  computeMST, 
-  getRandomPos, 
-  type Position, 
-  type Individual, 
-  type Riser, 
-  type Path 
-} from '../utils/simulation-logic';
+import { AVAILABLE_VOLTAGES, GRID_CELL, LEVELS } from '../utils/constants';
+import { computeMST, getRandomPos, type Position, type Individual, type Riser, type Path } from '../utils/simulation-logic';
 
 export const useElectricSimulation = () => {
   const gridSize = reactive({ width: 30, height: 20 });
@@ -122,7 +110,7 @@ export const useElectricSimulation = () => {
       if (!buffer) return;
       AVAILABLE_VOLTAGES.forEach((v, vIdx) => {
         const key = `${level}_${v}`, vColorIdx = vIdx + 1;
-        let starts: Position[] = [], ends: Position[] = [];
+        let starts: Position[], ends: Position[];
 
         if (lIdx === 0) { // Base level
           starts = voltageProviders.value.filter(p => p.level === level && p.type === v).map(p => p.position);
